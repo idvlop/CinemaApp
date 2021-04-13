@@ -1,8 +1,6 @@
 package org.idvlop.cinemaAppServer;
 
-import org.idvlop.cinemaAppServer.databaseService.DatabaseManager;
-import org.idvlop.cinemaAppServer.databaseService.dataSets.ClientDataSet;
-import org.idvlop.cinemaAppServer.databaseService.dataSets.SessionDataSet;
+//import org.idvlop.cinemaAppServer.databaseService.DatabaseManager;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -15,8 +13,8 @@ public class CinemaAppServerApplication {
 		//Server
 		//ServletContextHandler context = new ServletContextHandler(ServletContextHandler.SESSIONS);
 
-		var dbm = new DatabaseManager();
-		dbm.printConnectInfo();
+//		var dbm = new DatabaseManager();
+//		dbm.printConnectInfo();
 
 		//server.start();
 		//server.join();

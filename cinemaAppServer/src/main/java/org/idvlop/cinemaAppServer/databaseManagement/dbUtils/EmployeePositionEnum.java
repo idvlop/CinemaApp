@@ -1,4 +1,4 @@
-package org.idvlop.cinemaAppServer.databaseService.dbServiceUtils;
+package org.idvlop.cinemaAppServer.databaseManagement.dbUtils;
 
 public enum EmployeePositionEnum {
     ADMIN,

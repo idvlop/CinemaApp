@@ -1,4 +1,4 @@
-package org.idvlop.cinemaAppServer.databaseService.dataSets;
+package org.idvlop.cinemaAppServer.databaseManagement.dataSets;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -7,12 +7,9 @@ import lombok.ToString;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.sql.Time;
-import java.sql.Timestamp;
-import java.util.Date;
 
 @Entity
-@Table(name = "Movie")
+@Table(name = "Movies")
 @Getter
 @Setter
 @ToString
@@ -30,13 +27,8 @@ public class MovieDataSet implements Serializable {
     @Column(name = "director", nullable = false)
     private String director;
 
-    @Column(name = "year", nullable = false)
-    @Temporal(TemporalType.DATE)
-    private Date year; //TODO возможно Timestamp + формат
-
     @Column(name = "duration", nullable = false)
     private Integer duration; //Время в минутах
-    //TODO возможно Timestamp
 
     @Column(name = "age_rating", nullable = false)
     private Integer ageRating;

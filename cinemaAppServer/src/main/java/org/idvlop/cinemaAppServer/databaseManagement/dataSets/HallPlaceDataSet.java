@@ -1,4 +1,4 @@
-package org.idvlop.cinemaAppServer.databaseService.dataSets;
+package org.idvlop.cinemaAppServer.databaseManagement.dataSets;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -9,7 +9,8 @@ import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
-@Table(name = "HallPlace")
+@Table(name = "HallPlaces")
+@SecondaryTable(name = "Halls")
 @Getter
 @Setter
 @ToString
@@ -24,7 +25,8 @@ public class HallPlaceDataSet implements Serializable {
     @Column(name = "price", nullable = false)
     private Integer price;
 
-    @Column(name = "hall_id", nullable = false) //TODO Foreign Key и настройки каскадного* удаления
+    @ManyToOne(cascade = {CascadeType.MERGE, CascadeType.REMOVE})
+    @JoinColumn(name = "hall_id", table = "halls", referencedColumnName = "id", nullable = false) //TODO Foreign Key и настройки каскадного* удаления
     private Long hallId;
 
     @Column(name = "client_id") //TODO Foreign Key

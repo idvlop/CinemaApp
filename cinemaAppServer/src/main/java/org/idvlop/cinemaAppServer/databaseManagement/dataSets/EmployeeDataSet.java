@@ -1,16 +1,16 @@
-package org.idvlop.cinemaAppServer.databaseService.dataSets;
+package org.idvlop.cinemaAppServer.databaseManagement.dataSets;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
-import org.idvlop.cinemaAppServer.databaseService.dbServiceUtils.EmployeePositionEnum;
+import org.idvlop.cinemaAppServer.databaseManagement.dbUtils.EmployeePositionEnum;
 
 import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
-@Table(name = "Employee")
+@Table(name = "Employees")
 @Getter
 @Setter
 @ToString
@@ -32,7 +32,8 @@ public class EmployeeDataSet implements Serializable {
     private String name;
 
     @Column(name = "position", nullable = false)
-    private EmployeePositionEnum position; //TODO возможно можно заменить на Enum
+    @Enumerated(EnumType.STRING)
+    private EmployeePositionEnum position;
 
     @Column(name = "salary")
     private Integer salary;
