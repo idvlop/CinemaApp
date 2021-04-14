@@ -8,7 +8,7 @@ public class HomeController {
 
     @GetMapping("/")
     public String index() {
-        return "Welcome to the home page!";
+        return "HELLO WORLD! THIS IS CINEMA APP! DO YOU SEE?";
     }
 
 }

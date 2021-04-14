@@ -10,10 +10,6 @@ import java.io.Serializable;
 
 @Entity
 @Table(name = "EmployeeSessions")
-@SecondaryTables({
-        @SecondaryTable(name = "Sessions"),
-        @SecondaryTable(name = "Employees")
-})
 @Getter
 @Setter
 @ToString
@@ -26,10 +22,10 @@ public class EmployeeSessionDataSet implements Serializable {
     private Long Id;
 
     @ManyToOne(cascade = {CascadeType.MERGE}, targetEntity = SessionDataSet.class)
-    @JoinColumn(name = "session_id", table = "Sessions", referencedColumnName = "id", nullable = false)
+    @JoinColumn(name = "session_id", referencedColumnName = "id", nullable = false)
     private SessionDataSet session;
 
     @ManyToOne(cascade = {CascadeType.MERGE}, targetEntity = EmployeeDataSet.class)
-    @JoinColumn(name="employee_id", table = "Employees", referencedColumnName = "id", nullable = false)
+    @JoinColumn(name="employee_id", referencedColumnName = "id", nullable = false)
     private EmployeeDataSet employee;
 }

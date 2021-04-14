@@ -16,7 +16,6 @@ import java.util.Date;
 @ToString
 @NoArgsConstructor
 public class ClientDataSet implements Serializable{
-    //private static final long serialVersionUID = -8706689714326132798L; //TODO разобраться с этой строчкой
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -10,7 +10,6 @@ import java.io.Serializable;
 
 @Entity
 @Table(name = "HallPlaces")
-@SecondaryTable(name = "Halls")
 @Getter
 @Setter
 @ToString
@@ -26,10 +25,11 @@ public class HallPlaceDataSet implements Serializable {
     private Integer price;
 
     @ManyToOne(cascade = {CascadeType.MERGE, CascadeType.REMOVE})
-    @JoinColumn(name = "hall_id", table = "halls", referencedColumnName = "id", nullable = false) //TODO Foreign Key и настройки каскадного* удаления
-    private Long hallId;
+    @JoinColumn(name = "hall_id", referencedColumnName = "id", nullable = false) //TODO Foreign Key и настройки каскадного* удаления
+    private HallDataSet hallId;
 
-    @Column(name = "client_id") //TODO Foreign Key
+    @ManyToOne
+    @JoinColumn(name = "client_id", referencedColumnName = "id", nullable = false) //TODO Foreign Key
     private ClientDataSet placeOwnerClient;
 
 }
