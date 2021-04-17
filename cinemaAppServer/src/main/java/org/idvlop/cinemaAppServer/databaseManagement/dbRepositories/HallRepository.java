@@ -1,4 +1,4 @@
-package org.idvlop.cinemaAppServer.databaseManagement.dataAccessObjects;
+package org.idvlop.cinemaAppServer.databaseManagement.dbRepositories;
 
 import org.idvlop.cinemaAppServer.databaseManagement.dataSets.HallDataSet;
 import org.springframework.data.jpa.repository.JpaRepository;
