@@ -10,4 +10,3 @@ JavaFX
 Spring
 Hibernate
 PostgreSQL
-Jetty
