@@ -15,8 +15,9 @@ public class ClientService {
     private ClientRepository clientRepository;
 
     @Transactional
-    public void testClientRepository() {
+    public void testClientRepository(long id) {
         //clientRepository.
+        //var movie = MovieRepository.getOne(id);
         Optional<ClientDataSet> clientOptional = clientRepository.findById(127L);
         //....
     }
