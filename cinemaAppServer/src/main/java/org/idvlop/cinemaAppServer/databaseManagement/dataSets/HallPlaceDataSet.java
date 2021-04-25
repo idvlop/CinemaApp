@@ -28,9 +28,9 @@ public class HallPlaceDataSet implements Serializable {
     @JoinColumn(name = "hall_id", referencedColumnName = "id", nullable = false) //TODO Foreign Key и настройки каскадного* удаления
     private HallDataSet hallId;
 
-    @ManyToMany(mappedBy = "sessions")
-    @JoinColumn(name = "session_id", referencedColumnName = "id", nullable = false)
-    private SessionDataSet session_id;
+//    @ManyToMany(mappedBy = "sessions")
+//    @JoinColumn(name = "session_id", referencedColumnName = "id", nullable = false)
+//    private SessionDataSet session_id;
 
     @ManyToOne
     @JoinColumn(name = "client_id", referencedColumnName = "id", nullable = false) //TODO Foreign Key
