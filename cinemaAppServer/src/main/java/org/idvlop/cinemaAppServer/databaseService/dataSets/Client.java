@@ -30,7 +30,6 @@ public class Client implements Serializable{
     private String name;
 
     @Column(name = "birth_date", nullable = false)
-    @Temporal(TemporalType.DATE)
     private Timestamp birthDate;
 
     @Transient
