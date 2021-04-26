@@ -5,10 +5,10 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class MainWindowController {
-    private ClientFXApplication clientFXApplication;
+    private ClientApplication clientApplication;
     private ApplicationContext context;
 
-    public MainWindowController(ClientFXApplication clientFXApplication) {
-        this.clientFXApplication = clientFXApplication;
+    public MainWindowController(ClientApplication clientApplication) {
+        this.clientApplication = clientApplication;
     }
 }

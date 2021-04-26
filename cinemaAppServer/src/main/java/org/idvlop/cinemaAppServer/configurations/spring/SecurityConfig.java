@@ -78,21 +78,30 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         return new BCryptPasswordEncoder();
     }
 
-    @Bean
-    public UserDetailsService getUserDetailsService() {
-        return new UserDetailsService() {
-            @Override
-            public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
-                return userRepository.findByLogin(s);
-            }
-        };
-
-    }
+//    @Bean
+//    public UserDetailsService getUserDetailsService() {
+//        return new UserDetailsService() {
+//            @Override
+//            public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
+//                return userRepository.findByLogin(s);
+//            }
+//        };
+//
+//    }
     @Bean
     public DaoAuthenticationProvider authProvider() {
         DaoAuthenticationProvider authProvider = new DaoAuthenticationProvider();
         authProvider.setUserDetailsService(getUserDetailsService());
         authProvider.setPasswordEncoder(encoder());
         return authProvider;
+    }
+
+    private UserDetailsService getUserDetailsService() {
+        return new UserDetailsService() {
+            @Override
+            public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+                return null;
+            }
+        };
     }
 }
