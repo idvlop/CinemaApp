@@ -1,7 +1,7 @@
-package org.idvlop.cinemaAppServer.databaseManagement.dbServices;
+package org.idvlop.cinemaAppServer.databaseService.services;
 
-import org.idvlop.cinemaAppServer.databaseManagement.dbRepositories.MovieRepository;
-import org.idvlop.cinemaAppServer.databaseManagement.dataSets.MovieDataSet;
+import org.idvlop.cinemaAppServer.databaseService.dataAccessObjects.MovieRepository;
+import org.idvlop.cinemaAppServer.databaseService.dataSets.Movie;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -16,7 +16,7 @@ public class MovieService {
 
     @Transactional
     public void testMovieRepository() {
-        Optional<MovieDataSet> clientOptional = movieRepository.findById(127L);
+        Optional<Movie> clientOptional = movieRepository.findById(127L);
 
     }
 }

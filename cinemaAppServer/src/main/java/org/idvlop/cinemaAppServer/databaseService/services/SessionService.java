@@ -1,7 +1,7 @@
-package org.idvlop.cinemaAppServer.databaseManagement.dbServices;
+package org.idvlop.cinemaAppServer.databaseService.services;
 
-import org.idvlop.cinemaAppServer.databaseManagement.dbRepositories.SessionRepository;
-import org.idvlop.cinemaAppServer.databaseManagement.dataSets.SessionDataSet;
+import org.idvlop.cinemaAppServer.databaseService.dataAccessObjects.SessionRepository;
+import org.idvlop.cinemaAppServer.databaseService.dataSets.Session;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -16,7 +16,7 @@ public class SessionService {
 
     @Transactional
     public void testSessionRepository() {
-        Optional<SessionDataSet> clientOptional = sessionRepository.findById(127L);
+        Optional<Session> clientOptional = sessionRepository.findById(127L);
 
     }
 }

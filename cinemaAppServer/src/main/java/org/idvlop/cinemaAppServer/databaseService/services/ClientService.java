@@ -1,7 +1,7 @@
-package org.idvlop.cinemaAppServer.databaseManagement.dbServices;
+package org.idvlop.cinemaAppServer.databaseService.services;
 
-import org.idvlop.cinemaAppServer.databaseManagement.dbRepositories.ClientRepository;
-import org.idvlop.cinemaAppServer.databaseManagement.dataSets.ClientDataSet;
+import org.idvlop.cinemaAppServer.databaseService.dataAccessObjects.ClientRepository;
+import org.idvlop.cinemaAppServer.databaseService.dataSets.Client;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -15,11 +15,8 @@ public class ClientService {
     private ClientRepository clientRepository;
 
     @Transactional
-    public void testClientRepository(long id) {
-        //clientRepository.
-        //var movie = MovieRepository.getOne(id);
-        Optional<ClientDataSet> clientOptional = clientRepository.findById(127L);
-        //....
+    public Client getClient(String login){
+        return clientRepository.findByLogin(login);
     }
 }
 

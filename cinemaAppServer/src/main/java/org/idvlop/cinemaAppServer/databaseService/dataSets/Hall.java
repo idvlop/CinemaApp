@@ -1,21 +1,21 @@
-package org.idvlop.cinemaAppServer.databaseManagement.dataSets;
+package org.idvlop.cinemaAppServer.databaseService.dataSets;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
-import org.idvlop.cinemaAppServer.databaseManagement.dbUtils.SessionFormatEnum;
+import org.idvlop.cinemaAppServer.databaseService.dataSets.enums.SessionFormatEnum;
 
 import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
-@Table(name = "Halls")
+@Table(name = "HALLS")
 @Getter
 @Setter
 @ToString
 @NoArgsConstructor
-public class HallDataSet implements Serializable {
+public class Hall implements Serializable {
 
     @Id
     @Column(name = "id")

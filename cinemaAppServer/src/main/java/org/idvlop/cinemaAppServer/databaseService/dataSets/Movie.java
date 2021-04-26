@@ -1,4 +1,4 @@
-package org.idvlop.cinemaAppServer.databaseManagement.dataSets;
+package org.idvlop.cinemaAppServer.databaseService.dataSets;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -9,12 +9,12 @@ import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
-@Table(name = "Movies")
+@Table(name = "MOVIES")
 @Getter
 @Setter
 @ToString
 @NoArgsConstructor
-public class MovieDataSet implements Serializable {
+public class Movie implements Serializable {
 
     @Id
     @Column(name = "id")

@@ -1,4 +1,4 @@
-package org.idvlop.cinemaAppServer.databaseManagement.dataSets;
+package org.idvlop.cinemaAppServer.databaseService.dataSets;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -7,35 +7,33 @@ import lombok.ToString;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.sql.Timestamp;
 import java.util.Date;
 
 @Entity
-@Table(name = "Clients")
+@Table(name = "CLIENTS")
 @Getter
 @Setter
 @ToString
 @NoArgsConstructor
-public class ClientDataSet implements Serializable{
+public class Client implements Serializable{
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name= "login", unique = true, updatable = false, nullable = false)
-    private String login;
-
-    @Column(name = "passwd_code", nullable = false)
-    private String passwdCode;
+    @OneToOne
+    @JoinColumn(name = "user_id", referencedColumnName = "id", nullable = false)
+    private User user;
 
     @Column(name = "name", nullable = false)
     private String name;
 
     @Column(name = "birth_date", nullable = false)
     @Temporal(TemporalType.DATE)
-    private Date birthDate;
+    private Timestamp birthDate;
 
     @Transient
     private Integer age;
-    //TODO разобраться с @SuppressWarnings("UnusedDeclaration")
 
 }

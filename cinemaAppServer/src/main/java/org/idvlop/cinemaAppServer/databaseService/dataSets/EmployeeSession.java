@@ -1,4 +1,4 @@
-package org.idvlop.cinemaAppServer.databaseManagement.dataSets;
+package org.idvlop.cinemaAppServer.databaseService.dataSets;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -9,23 +9,23 @@ import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
-@Table(name = "EmployeeSessions")
+@Table(name = "EMPLOYEE_SESSIONS")
 @Getter
 @Setter
 @ToString
 @NoArgsConstructor
-public class EmployeeSessionDataSet implements Serializable {
+public class EmployeeSession implements Serializable {
 
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long Id;
 
-    @ManyToOne(cascade = {CascadeType.MERGE}, targetEntity = SessionDataSet.class)
+    @ManyToOne(cascade = {CascadeType.MERGE}, targetEntity = Session.class)
     @JoinColumn(name = "session_id", referencedColumnName = "id", nullable = false)
-    private SessionDataSet session;
+    private Session session;
 
-    @ManyToOne(cascade = {CascadeType.MERGE}, targetEntity = EmployeeDataSet.class)
+    @ManyToOne(cascade = {CascadeType.MERGE}, targetEntity = Employee.class)
     @JoinColumn(name="employee_id", referencedColumnName = "id", nullable = false)
-    private EmployeeDataSet employee;
+    private Employee employee;
 }

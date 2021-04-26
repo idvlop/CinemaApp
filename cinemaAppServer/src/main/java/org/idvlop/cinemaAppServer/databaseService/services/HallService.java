@@ -1,7 +1,7 @@
-package org.idvlop.cinemaAppServer.databaseManagement.dbServices;
+package org.idvlop.cinemaAppServer.databaseService.services;
 
-import org.idvlop.cinemaAppServer.databaseManagement.dbRepositories.HallRepository;
-import org.idvlop.cinemaAppServer.databaseManagement.dataSets.HallDataSet;
+import org.idvlop.cinemaAppServer.databaseService.dataAccessObjects.HallRepository;
+import org.idvlop.cinemaAppServer.databaseService.dataSets.Hall;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -16,7 +16,7 @@ public class HallService {
 
     @Transactional
     public void testHallRepository() {
-        Optional<HallDataSet> clientOptional = hallRepository.findById(127L);
+        Optional<Hall> clientOptional = hallRepository.findById(127L);
 
     }
 }
