@@ -21,19 +21,16 @@ public class HallPlace implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "price", nullable = false)
-    private Integer price;
-
     @ManyToOne(cascade = {CascadeType.MERGE, CascadeType.REMOVE})
     @JoinColumn(name = "hall_id", referencedColumnName = "id", nullable = false) //TODO Foreign Key и настройки каскадного* удаления
     private Hall hallId;
 
-//    @ManyToMany(mappedBy = "sessions")
-//    @JoinColumn(name = "session_id", referencedColumnName = "id", nullable = false)
-//    private Session session_id;
+    @Column(name = "price", nullable = false)
+    private Integer price;
 
-    @ManyToOne
-    @JoinColumn(name = "client_id", referencedColumnName = "id", nullable = false) //TODO Foreign Key
-    private Client placeOwnerClient;
+    @Column(name = "row", nullable = false)
+    private Integer row;
 
+    @Column(name = "column", nullable = false)
+    private Integer column;
 }

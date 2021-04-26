@@ -25,7 +25,13 @@ public class Hall implements Serializable {
     @Column(name = "places_count", nullable = false)
     private Integer placesCount;
 
+    @Column(name = "rows_count", nullable = false)
+    private Integer rowCount;
+
+    @Column(name = "columns_count", nullable = false)
+    private Integer columnsCount;
+
     @Column(name = "format", nullable = false)
     @Enumerated(EnumType.STRING)
-    private SessionFormatEnum format; // Выбор из [ 3D / 2D / IMAX ]
+    private SessionFormatEnum format; // Выбор из [ _2D / _3D / _IMAX ]
 }

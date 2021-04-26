@@ -30,7 +30,7 @@ public class Movie implements Serializable {
     @Column(name = "duration", nullable = false)
     private Integer duration; //Время в минутах
 
-    @Column(name = "age_rating", nullable = false)
+    @Column(name = "age_rating", nullable = false, precision = 2)
     private Integer ageRating;
 
 }

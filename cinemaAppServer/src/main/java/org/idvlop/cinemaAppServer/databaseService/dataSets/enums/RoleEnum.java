@@ -3,9 +3,10 @@ package org.idvlop.cinemaAppServer.databaseService.dataSets.enums;
 import lombok.NoArgsConstructor;
 
 @NoArgsConstructor
-public enum EmployeePositionEnum {
+public enum RoleEnum {
     ADMIN,
     MANAGER,
-    WORKER;
-
+    WORKER,
+    CLIENT,
+    ANONYMOUS;
 }

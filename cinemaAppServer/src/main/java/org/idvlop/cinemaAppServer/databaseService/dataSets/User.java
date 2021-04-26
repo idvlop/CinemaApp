@@ -4,7 +4,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
-import org.idvlop.cinemaAppServer.databaseService.dataSets.enums.EmployeePositionEnum;
+import org.idvlop.cinemaAppServer.databaseService.dataSets.enums.RoleEnum;
 
 import javax.persistence.*;
 import java.io.Serializable;
@@ -29,5 +29,5 @@ public class User implements Serializable {
 
     @Column(name = "role", nullable = false)
     @Enumerated(EnumType.STRING)
-    private EmployeePositionEnum role;
+    private RoleEnum role;
 }
