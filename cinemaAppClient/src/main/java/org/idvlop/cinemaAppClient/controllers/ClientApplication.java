@@ -50,11 +50,12 @@ public class ClientApplication extends Application {
 
         PlaceholdersManager.SetUpPlaceholders(); // Добавление данных по умолчанию (пользователи, софт, модули)
 
-        fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/InitLoading.fxml"));
+        fxmlLoader = new FXMLLoader();
+        fxmlLoader.setLocation(getClass().getResource("/fxml/InitLoading.fxml"));
         fxmlLoader.setClassLoader(InitLoadingController.class.getClassLoader()); // Не используется, так как руками назначил контроллер
         fxmlLoader.setControllerFactory(springContext::getBean);
 
-        InitLoadingController controller = new InitLoadingController(); // Вот эта
+        InitLoadingController controller = new InitLoadingController(this.getc); // Вот эта
         fxmlLoader.setController(controller); // И эта строки наконец починили всё
 
         rootNode = fxmlLoader.load();

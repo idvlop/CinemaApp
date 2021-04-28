@@ -1,7 +1,10 @@
 package org.idvlop.cinemaAppClient.controllers;
 
 import javafx.fxml.Initializable;
+import lombok.Getter;
+import lombok.Setter;
 import org.idvlop.cinemaAppClient.ScreenManager;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.io.IOException;
 import java.net.URL;
@@ -12,6 +15,8 @@ import java.util.ResourceBundle;
  * Нужен, потому что не получается назначить на первый экран контроллер через fxml, что приводит к трудностям.
  */
 public class InitLoadingController implements Initializable {
+
+
     private static ClientApplication clientApplication;
 
     /**
