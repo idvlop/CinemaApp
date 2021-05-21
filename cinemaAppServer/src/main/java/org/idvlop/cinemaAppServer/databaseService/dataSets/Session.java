@@ -26,7 +26,7 @@ public class Session implements Serializable {
     @JoinColumn(name = "movie_id", referencedColumnName = "id", nullable = false)//TODO Foreign Key и настройки каскадного* удаления
     private Movie movie;
 
-    @ManyToOne(cascade = CascadeType.MERGE)
+    @ManyToOne
     @JoinColumn(name = "hall_id", referencedColumnName = "id", nullable = false)//TODO Foreign Key и настройки каскадного* удаления
     private Hall hall;
 

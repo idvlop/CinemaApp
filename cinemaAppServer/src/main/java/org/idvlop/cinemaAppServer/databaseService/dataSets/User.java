@@ -5,9 +5,14 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 import org.idvlop.cinemaAppServer.databaseService.dataSets.enums.RoleEnum;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.sql.Timestamp;
+import java.util.Collection;
+import java.util.Set;
 
 @Entity
 @Table(name = "USERS")
@@ -15,7 +20,7 @@ import java.io.Serializable;
 @Setter
 @ToString
 @NoArgsConstructor
-public class User implements Serializable {
+public class User implements Serializable, UserDetails {
     @Id
     @Column(name = "id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -27,7 +32,45 @@ public class User implements Serializable {
     @Column(name = "passwd_code", nullable = false)
     private String passwdCode;
 
-    @Column(name = "role", nullable = false)
-    @Enumerated(EnumType.STRING)
-    private RoleEnum role;
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinColumn(nullable = false)
+    private Set<Role> roles;
+
+    @Transient
+    private String passwordConfirm;
+
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return getRoles();
+    }
+
+    @Override
+    public String getPassword() {
+        return passwdCode;
+    }
+
+    @Override
+    public String getUsername() {
+        return login;
+    }
+
+    @Override
+    public boolean isAccountNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return true;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return true;
+    }
 }

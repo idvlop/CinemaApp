@@ -21,11 +21,11 @@ public class EmployeeSession implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long Id;
 
-    @ManyToOne(cascade = {CascadeType.MERGE}, targetEntity = Session.class)
+    @ManyToOne
     @JoinColumn(name = "session_id", referencedColumnName = "id", nullable = false)
     private Session session;
 
-    @ManyToOne(cascade = {CascadeType.MERGE}, targetEntity = Employee.class)
+    @ManyToOne
     @JoinColumn(name="employee_id", referencedColumnName = "id", nullable = false)
     private Employee employee;
 }

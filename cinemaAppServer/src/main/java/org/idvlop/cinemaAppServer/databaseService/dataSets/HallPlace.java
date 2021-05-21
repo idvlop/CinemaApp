@@ -21,7 +21,7 @@ public class HallPlace implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne(cascade = {CascadeType.MERGE, CascadeType.REMOVE})
+    @ManyToOne
     @JoinColumn(name = "hall_id", referencedColumnName = "id", nullable = false) //TODO Foreign Key и настройки каскадного* удаления
     private Hall hallId;
 
@@ -31,6 +31,6 @@ public class HallPlace implements Serializable {
     @Column(name = "row", nullable = false)
     private Integer row;
 
-    @Column(name = "column", nullable = false)
+    @Column(name = "col", nullable = false)
     private Integer column;
 }

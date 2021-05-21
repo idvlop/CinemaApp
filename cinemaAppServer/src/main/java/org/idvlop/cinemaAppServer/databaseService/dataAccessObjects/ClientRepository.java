@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 public interface ClientRepository extends JpaRepository<Client, Long> {
 
 
-    Client findByLogin(String login);
+    //Client findByLogin(String login);
 //    void createNewClient(String login, String passwd, String name, Timestamp birthDate);
 //    void editNameClient(Long id, String newName);
 //    void editPasswdClient(Long id, String newPasswd);

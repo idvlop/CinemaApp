@@ -11,12 +11,12 @@ import java.util.Optional;
 @Service
 public class SessionService {
 
-    @Autowired
-    private SessionRepository sessionRepository;
-
-    @Transactional
-    public void testSessionRepository() {
-        Optional<Session> clientOptional = sessionRepository.findById(127L);
-
-    }
+//    @Autowired
+//    private SessionRepository sessionRepository;
+//
+//    @Transactional
+//    public void testSessionRepository() {
+//        Optional<Session> clientOptional = sessionRepository.findById(127L);
+//
+//    }
 }
