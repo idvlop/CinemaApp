@@ -6,17 +6,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.annotation.Resource;
 import java.util.Optional;
 
 @Service
 public class HallService {
 
-    @Autowired
+    @Resource
     private HallRepository hallRepository;
 
     @Transactional
-    public void testHallRepository() {
-        Optional<Hall> clientOptional = hallRepository.findById(127L);
-
+    public Hall getHallById(Long id) {
+        Optional<Hall> hall = hallRepository.findById(id);
+        return hall.get();
     }
 }

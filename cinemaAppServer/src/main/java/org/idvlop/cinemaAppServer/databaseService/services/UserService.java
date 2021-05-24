@@ -1,23 +1,17 @@
 package org.idvlop.cinemaAppServer.databaseService.services;
 
-import org.idvlop.cinemaAppServer.databaseService.dataAccessObjects.ClientRepository;
 import org.idvlop.cinemaAppServer.databaseService.dataAccessObjects.RoleRepository;
 import org.idvlop.cinemaAppServer.databaseService.dataAccessObjects.UserRepository;
-import org.idvlop.cinemaAppServer.databaseService.dataSets.Client;
 import org.idvlop.cinemaAppServer.databaseService.dataSets.Role;
 import org.idvlop.cinemaAppServer.databaseService.dataSets.User;
-import org.idvlop.cinemaAppServer.databaseService.dataSets.enums.RoleEnum;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Bean;
-import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.annotation.Resource;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import java.util.Collections;
@@ -30,16 +24,17 @@ public class UserService implements UserDetailsService {
     @PersistenceContext
     private EntityManager em;
 
-    @Autowired
+    @Resource
     UserRepository userRepository;
 
-    @Autowired
+    @Resource
     RoleRepository roleRepository;
 
-    @Autowired
+    @Resource
     BCryptPasswordEncoder bCryptPasswordEncoder;
 
     @Override
+    @Transactional
     public UserDetails loadUserByUsername(String login) throws UsernameNotFoundException {
         User user = userRepository.findByLogin(login);
 
@@ -50,15 +45,18 @@ public class UserService implements UserDetailsService {
         return user;
     }
 
+    @Transactional
     public User findUserById(Long userId) {
         Optional<User> userFromDb = userRepository.findById(userId);
         return userFromDb.orElse(new User());
     }
 
+    @Transactional
     public List<User> allUsers() {
         return userRepository.findAll();
     }
 
+    @Transactional
     public boolean saveUser(User user) {
         User userFromDB = userRepository.findByLogin(user.getUsername());
 
@@ -73,6 +71,7 @@ public class UserService implements UserDetailsService {
     }
 
     @Deprecated
+    @Transactional
     public boolean deleteUser(Long userId) {
         if (userRepository.findById(userId).isPresent()) {
             userRepository.deleteById(userId);

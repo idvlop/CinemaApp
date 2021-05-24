@@ -5,16 +5,17 @@ import org.idvlop.cinemaAppServer.databaseService.dataSets.EmployeeSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.annotation.Resource;
 import java.util.Optional;
 
 public class EmployeeSessionService {
 
-    @Autowired
+    @Resource
     private EmployeeSessionRepository employeeSessionRepository;
 
     @Transactional
-    public void testEmployeeSessionRepository() {
-        Optional<EmployeeSession> clientOptional = employeeSessionRepository.findById(127L);
-
+    public EmployeeSession getEmployeeSessionById(Long id) {
+        Optional<EmployeeSession> employeeSession = employeeSessionRepository.findById(id);
+        return employeeSession.get();
     }
 }

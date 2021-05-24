@@ -1,7 +1,9 @@
 package org.idvlop.cinemaAppServer.restService;
 
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-public class HallPlaceController {
+@RequestMapping("/client")
+public class ClientController {
 }

@@ -6,17 +6,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.annotation.Resource;
 import java.util.Optional;
 
 @Service
 public class MovieService {
 
-    @Autowired
+    @Resource
     private MovieRepository movieRepository;
 
     @Transactional
-    public void testMovieRepository() {
-        Optional<Movie> clientOptional = movieRepository.findById(127L);
-
+    public Movie getMovieById(Long id) {
+        Optional<Movie> movie = movieRepository.findById(id);
+        return movie.get();
     }
 }

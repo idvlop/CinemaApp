@@ -6,16 +6,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import javax.annotation.Resource;
 import java.util.Optional;
 
 @Service
 public class EmployeeService {
 
-    @Autowired
+    @Resource
     private EmployeeRepository employeeRepository;
 
     @Transactional
-    public void testEmployeeRepository() {
-        Optional<Employee> clientOptional = employeeRepository.findById(127L);
+    public Employee getEmployeeById(Long id) {
+        Optional<Employee> employee = employeeRepository.findById(id);
+        return employee.get();
     }
 }

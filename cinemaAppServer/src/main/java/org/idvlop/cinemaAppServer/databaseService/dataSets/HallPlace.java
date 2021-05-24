@@ -23,7 +23,7 @@ public class HallPlace implements Serializable {
 
     @ManyToOne
     @JoinColumn(name = "hall_id", referencedColumnName = "id", nullable = false) //TODO Foreign Key и настройки каскадного* удаления
-    private Hall hallId;
+    private Hall hall;
 
     @Column(name = "price", nullable = false)
     private Integer price;
