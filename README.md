@@ -2,7 +2,4 @@
  Приложение для кинотеатра. 
 
 Стек разработки:
-Java
-JavaFX
-Spring Boot
-PostgreSQL
+Java + Spring Boot + PostgreSQL + REST + JavaFX
