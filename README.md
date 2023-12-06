@@ -1,5 +1,3 @@
-# CinemaApplication-by-Denis-Ishmurat
- Приложение для кинотеатра. 
+# CinemaApp
 
-Стек разработки:
-Java + Spring Boot + PostgreSQL + REST + JavaFX
+[Java + Spring Boot + PostgreSQL + REST + JavaFX]
